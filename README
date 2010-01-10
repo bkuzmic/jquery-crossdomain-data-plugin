@@ -17,10 +17,6 @@ $.getRemoteData(
     'http://-some-remote-url-/source.html'
 );
 
-For more info visit:
-
-http://github.com/bkuzmic/jquery-crossdomain-data-plugin/
-
-or wiki:
+For more info visit wiki:
 
 http://wiki.github.com/bkuzmic/jquery-crossdomain-data-plugin
