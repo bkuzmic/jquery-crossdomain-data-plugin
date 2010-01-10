@@ -1,0 +1,26 @@
+-------------------------------
+Cross Domain Data JQuery Plugin
+-------------------------------
+by Boris Kuzmic
+
+This plugin can be used to dynamically load content from same or other domains. 
+It’s creating a hidden iframe object to fetch remote page and when remote page sends data 
+(either via window.postMessage in all modern browsers or via window.name in IE 6 & 7), 
+data is read and callback method is invoked.
+
+Simple usage:
+
+$.getRemoteData(
+    function(data){
+       $("body").append( data );
+    },
+    'http://-some-remote-url-/source.html'
+);
+
+For more info visit:
+
+http://github.com/bkuzmic/jquery-crossdomain-data-plugin/
+
+or wiki:
+
+http://wiki.github.com/bkuzmic/jquery-crossdomain-data-plugin
