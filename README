@@ -1,7 +1,8 @@
 -------------------------------
 Cross Domain Data JQuery Plugin
 -------------------------------
-by Boris Kuzmic
+-- by Boris Kuzmic
+-- version 0.1
 
 This plugin can be used to dynamically load content from same or other domains. 
 It’s creating a hidden iframe object to fetch remote page and when remote page sends data 
