@@ -17,6 +17,21 @@ $.getRemoteData(
     'http://-some-remote-url-/source.html'
 );
 
+In source page one must add code like this (as last body element), 
+to enable true cross domain interaction:
+
+<script type="text/javascript">
+    window.name = $("body").html();
+    try {
+        var target = parent.postMessage ? parent : (parent.document.postMessage ? parent.document : undefined);
+ 
+        if (typeof target != "undefined") {
+            target.postMessage($("body").html(), "*");
+        }
+    } catch (e) {/**/}
+</script>
+ 
+
 For more info visit wiki:
 
 http://wiki.github.com/bkuzmic/jquery-crossdomain-data-plugin
