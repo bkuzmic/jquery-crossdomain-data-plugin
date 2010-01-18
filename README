@@ -2,21 +2,33 @@
 Cross Domain Data JQuery Plugin
 -------------------------------
 -- by Boris Kuzmic
--- version 0.1
+-- version 0.2
 -- license: MIT - http://www.opensource.org/licenses/mit-license.php
 
-This plugin can be used to dynamically load content from same or other domains. 
+Plugin can be used to dynamically load content from same or other domains. It can also
+post form data to remote server script.
 It’s creating a hidden iframe object to fetch remote page and when remote page sends data 
 (either via window.postMessage in all modern browsers or via window.name in IE 6 & 7), 
 data is read and callback method is invoked.
 
 Simple usage:
 
+Only to retrieve data:
+
 $.getRemoteData(
     function(data){
        $("body").append( data );
     },
     'http://-some-remote-url-/source.html'
+);
+
+To post form use it like this:
+
+$.postFormRemote(
+    function(data){
+        $("#form_result").append( data );
+    },
+    'test_frm_id', 'form.php', 'post'
 );
 
 In source page one must add code like this (as last body element), 
