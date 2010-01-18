@@ -4,12 +4,12 @@
 * 
 * by Boris Kuzmic
 *
-* version 0.1
+* version 0.2
 * 
 * license: MIT - http://www.opensource.org/licenses/mit-license.php
 *
 * Description: 
-* Get or post data cross domains. (post is coming soon)
+* Get or post data cross domains.
 * You can post a form or orbitrary data and receive result back as JQuery object.
 * Page on other domain chooses which data to return. 
 *
