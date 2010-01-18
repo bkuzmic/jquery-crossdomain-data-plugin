@@ -18,6 +18,73 @@
 * 
 */
 (function($){
+	
+	$.postFormRemote = function(callback, formId, action, method) {
+		var _cb; 				// holds postMessage callback
+		var frm;				// jquery iframe object
+		var rform;			// form object using formId
+		var loaded = false; 	// iframe loading indicator, for window.name transport only
+		
+		rform = $("#" + formId);
+				
+		rform.submit(function() {
+			frm = $('<iframe name="_rmfrm_form" id="_rmfrm_form" style="display:none;" scrolling="no" frameborder="0"></iframe>');		
+			$(document.body).append(frm);
+			
+			// set form parameters
+			rform.attr('target', '_rmfrm_form');
+			rform.attr('action', action);
+			rform.attr('method', method);
+			
+			// use window.postMessage if available for message transport
+			if (window.postMessage) {
+				if (callback) {
+					_cb = null;
+					
+					_cb = function(e) {
+						// cleanup						
+						$(window).unbind('message',_cb);					
+						frm.remove();
+						rform.remove();
+						callback(e.originalEvent.data);
+					};
+					
+					$(window).bind('message',_cb);						
+				}			
+			} else {
+				// fall back to window.name transport
+				frm.load(function() {
+					if (loaded) {
+						if (!$.browser.msie) {
+							retrieveData();
+						}
+					} else {
+						loaded = true;
+						frm.get(0).contentWindow.location = "about:blank";
+					}
+				});
+			
+				if ($.browser.msie) {
+					frm.get(0).onreadystatechange = function() {
+						if (loaded) {
+							retrieveData();
+						}
+					};
+				}
+			}
+			
+			function retrieveData() {
+				try {
+					var data = frm.get(0).contentWindow.name || null;
+					if (data != null) {
+						frm.remove();
+						rform.remove();
+						callback(data);
+					}
+				} catch (e) {/**/}	
+			}
+		});
+	};
 
 	$.getRemoteData = function(callback, url) {
 		var _cb; 				// holds postMessage callback
