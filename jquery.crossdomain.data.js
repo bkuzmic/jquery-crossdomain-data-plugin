@@ -6,6 +6,16 @@
 *
 * version 0.1
 * 
+* license: MIT - http://www.opensource.org/licenses/mit-license.php
+*
+* Description: 
+* Get or post data cross domains.
+* You can post a form or orbitrary data and receive result back as JQuery object.
+* Page on other domain chooses which data to return. 
+*
+* See more at:
+* http://wiki.github.com/bkuzmic/jquery-crossdomain-data-plugin/
+* 
 */
 (function($){
 
