@@ -28,7 +28,7 @@ $.postFormRemote(
     function(data){
         $("#form_result").append( data );
     },
-    'test_frm_id', 'form.php', 'post'
+    'form_id', 'form_url', 'form_method'
 );
 
 In source page one must add code like this (as last body element), 
