@@ -23,7 +23,7 @@
         <h2>Example 1:<br/>Cross-Domain Content Loading Demo</h2>
         
         <p>
-           The block below is content loaded from an HTML file <a href="http://www.tkcnc.com/iframe_test/source.html">located on a different server</a>
+           The block below is content loaded from an HTML file <a href="http://bkuzmic.github.com/jquery-crossdomain-data-plugin/source.html">located on a different server</a>
 	   using hidden and dynamically created iframe.
            The source file sets all it's content using window.postMessage method or in window.name variable (up to 2mb or sometimes more) which is then read when iframe is finished loading.
 	   After content is loaded, it can than be styled and injected anywhere on page.
@@ -41,7 +41,7 @@
 			function(data){
 				$("#result").append( data );
 			},
-			'source.html'
+			'http://bkuzmic.github.com/jquery-crossdomain-data-plugin/source.html'
 		);
 
 	</script>
